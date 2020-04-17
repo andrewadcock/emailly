@@ -1,9 +1,10 @@
 const express = require('express');
+require('./services/passport')
+const authRoutes = require('./routes/authRoutes')
+
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send({hi : 'there'});
-});
+require('./routes/authRoutes')(app);
 
 
 // Add heroku port via env var, else resolve to static value
